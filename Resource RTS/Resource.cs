@@ -1,7 +1,7 @@
 ﻿using UnityEngine.UI;
 
 
-class Resource
+public class Resource
 {
     int _count;
     Image _icon;
@@ -15,7 +15,7 @@ class Resource
         _count = count;
         _icon = icon;
         _hint = hint;
-        _ID = ++IDCounter;
+        _ID = IDCounter++;
     }
 
     ~Resource()

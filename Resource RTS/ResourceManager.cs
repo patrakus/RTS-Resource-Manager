@@ -8,7 +8,9 @@ public class ResourceManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        Resource gold = new Resource(100, null, "Gold");
+
+        AddResource(gold);
 	}
 	
 	// Update is called once per frame
@@ -16,34 +18,28 @@ public class ResourceManager : MonoBehaviour {
 		
 	}
 
-    void IncrementResource( int amount, int resourceID)
+    public void IncrementResource(int amount, int resourceID)
     {
-        throw new System.Exception();
+        resourcesList[resourceID].Count += amount;
     }
 
-    void DecrementResource(int amount, int resourceID)
+    public void DecrementResource(int amount, int resourceID)
     {
-        throw new System.Exception();
+        resourcesList[resourceID].Count = amount;
     }
 
-    void AddResource(Resource newResource)
+    public void AddResource(Resource newResource)
     {
-        throw new System.Exception();
+        resourcesList.Add(newResource);
     }
 
-    void RemoweResource(Resource Resource)
+    public void RemoweResource(Resource resourceTORemove)
     {
-        throw new System.Exception();
+        resourcesList.Remove(resourceTORemove);
     }
 
-    Resource GetResource(int ID) /// TODO: dorobić test dla tej metody
+    public Resource GetResource(int ID) /// TODO: dorobić test dla tej metody
     {
-        foreach (var item in resourcesList)
-        {
-            if (item.ID == ID)
-                return item;
-        }
-
-        return null;
+        return resourcesList[ID];
     }
 }
